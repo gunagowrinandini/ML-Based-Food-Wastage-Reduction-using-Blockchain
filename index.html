@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Management DApp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>🍽️ Food Waste Management DApp</h2>
+            </div>
+            <div class="nav-tabs" role="tablist">
+                <button class="nav-tab active" id="homeTabBtn" role="tab" aria-selected="true"
+                    onclick="showTab('home')">
+                    Homepage
+                </button>
+                <button class="nav-tab" id="systemTabBtn" role="tab" aria-selected="false" onclick="showTab('system')">
+                    System
+                </button>
+                <button class="nav-tab" id="inventoryTabBtn" role="tab" aria-selected="false"
+                    onclick="showTab('inventory')">
+                    Inventory
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage Tab -->
+    <div id="homeTab" class="tab-content active" role="tabpanel" aria-labelledby="homeTabBtn">
+        <div class="homepage-container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Smart Food Waste Management using AI & Blockchain</h1>
+                    <p class="hero-subtitle">
+                        A revolutionary decentralized application that connects surplus food from marts and events
+                        directly to NGOs, using artificial intelligence for freshness assessment and blockchain
+                        for transparent, immutable donation tracking.
+                    </p>
+                    <button class="cta-button" onclick="showTab('system')">Open System</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-icon">🚀</div>
+                </div>
+            </section>
+
+            <!-- Problem Statement -->
+            <section class="content-section">
+                <h2>🔍 The Problem</h2>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <h3>Global Food Waste Crisis</h3>
+                        <ul>
+                            <li>1.3 billion tons of food wasted annually worldwide</li>
+                            <li>33% of all food produced is never consumed</li>
+                            <li>Developing countries lose $310 billion worth of food each year</li>
+                        </ul>
+                    </div>
+                    <div class="problem-card">
+                        <h3>Environmental Impact</h3>
+                        <ul>
+                            <li>Food waste generates 8% of global greenhouse gas emissions</li>
+                            <li>Wasted food in landfills produces methane, a potent greenhouse gas</li>
+                            <li>Agricultural resources used for wasted food could feed millions</li>
+                        </ul>
+                    </div>
+                    <div class="problem-card">
+                        <h3>Humanitarian Gap</h3>
+                        <ul>
+                            <li>828 million people suffer from hunger globally</li>
+                            <li>Surplus food from events and businesses rarely reaches those in need</li>
+                            <li>Lack of efficient, transparent donation systems</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sdg-note">
+                    <p><strong>Addresses UN SDG 2 (Zero Hunger) and SDG 12 (Responsible Consumption and
+                            Production)</strong></p>
+                </div>
+            </section>
+
+            <!-- System Architecture -->
+            <section class="content-section">
+                <h2>🏗️ System Architecture</h2>
+                <div class="architecture-overview">
+                    <div class="arch-component">
+                        <h3>🏪 Mart Food Module</h3>
+                        <p>Barcode scanning and expiry date validation for supermarket products</p>
+                        <div class="arch-flow">
+                            [Product Database] → [Barcode Input] → [Expiry Check] → [Eligibility Decision]
+                        </div>
+                    </div>
+                    <div class="arch-component">
+                        <h3>🎉 Wedding/Party Food Module</h3>
+                        <p>AI-powered image analysis for event surplus food freshness assessment</p>
+                        <div class="arch-flow">
+                            [Image Upload] → [AI Analysis] → [Freshness Classification] → [Donation Eligibility]
+                        </div>
+                    </div>
+                    <div class="arch-component">
+                        <h3>🛒 Donation Cart System</h3>
+                        <p>Centralized management of eligible food items before NGO selection</p>
+                        <div class="arch-flow">
+                            [Item Collection] → [Cart Management] → [Quantity Tracking] → [NGO Assignment]
+                        </div>
+                    </div>
+                    <div class="arch-component">
+                        <h3>🏢 NGO Selection Portal</h3>
+                        <p>Directory of registered NGOs with location and capacity information</p>
+                        <div class="arch-flow">
+                            [NGO Database] → [Location Matching] → [Capacity Check] → [Selection Interface]
+                        </div>
+                    </div>
+                    <div class="arch-component full-width">
+                        <h3>⛓️ Blockchain Transaction Module</h3>
+                        <p>Immutable donation recording using Ethereum smart contracts</p>
+                        <div class="arch-flow">
+                            [MetaMask Integration] → [Transaction Signing] → [Smart Contract Execution] → [On-Chain
+                            Recording]
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End-to-End Flow -->
+            <section class="content-section">
+                <h2>🔄 End-to-End Flow</h2>
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Start Application</h4>
+                            <p>User opens the Food Waste Management DApp</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Choose Food Source</h4>
+                            <p>Select Mart Food (barcode-based) or Wedding/Party Food (AI analysis)</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Eligibility Assessment</h4>
+                            <p>Mart: Expiry date validation | Party: AI image freshness analysis</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Add to Donation Cart</h4>
+                            <p>Eligible items are added to centralized donation cart</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Select NGO Partner</h4>
+                            <p>Choose from registered NGOs based on location and capacity</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Execute Blockchain Transaction</h4>
+                            <p>MetaMask signs and submits donation record to Ethereum network</p>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+
+                    <div class="flow-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h4>Donation Complete</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Stack -->
+            <section class="content-section">
+                <h2>🛠️ Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-card">
+                        <div class="tech-icon">🌐</div>
+                        <h3>Frontend</h3>
+                        <p>HTML5, CSS3, JavaScript ES6+</p>
+                        <p>Responsive web interface with modern UI/UX</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">🤖</div>
+                        <h3>AI & ML</h3>
+                        <p>OpenRouter API + Google Gemini</p>
+                        <p>Advanced image analysis for food freshness assessment</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">⛓️</div>
+                        <h3>Blockchain</h3>
+                        <p>Web3.js, MetaMask, Ethereum</p>
+                        <p>Decentralized transaction processing and recording</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">📜</div>
+                        <h3>Smart Contracts</h3>
+                        <p>Solidity, Hardhat, Etherscan</p>
+                        <p>Automated donation tracking and verification</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Web3 & Smart Contracts -->
+            <section class="content-section">
+                <h2>🔐 Web3 Integration</h2>
+                <div class="web3-explanation">
+                    <div class="web3-content">
+                        <h3>How Blockchain Ensures Transparency</h3>
+                        <p>When users click "Execute Donation on Blockchain," the following secure process occurs:</p>
+                        <ol>
+                            <li><strong>Wallet Connection:</strong> MetaMask securely connects user's Ethereum wallet
+                            </li>
+                            <li><strong>Transaction Signing:</strong> User signs the donation transaction with their
+                                private key</li>
+                            <li><strong>Network Submission:</strong> Signed transaction is broadcast to the Ethereum
+                                network</li>
+                            <li><strong>Block Inclusion:</strong> Transaction is validated and included in a block by
+                                miners</li>
+                            <li><strong>Immutable Record:</strong> Donation details are permanently recorded on the
+                                blockchain</li>
+                        </ol>
+                    </div>
+                    <div class="contract-details">
+                        <h3>Smart Contract Responsibilities</h3>
+                        <ul>
+                            <li>✅ Records donor address and timestamp</li>
+                            <li>✅ Maps donations to specific NGOs</li>
+                            <li>✅ Tracks total donation counts per NGO</li>
+                            <li>✅ Provides immutable audit trail</li>
+                            <li>✅ Enables transparent verification</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Analysis -->
+            <section class="content-section">
+                <h2>🧠 AI-Powered Food Analysis</h2>
+                <div class="ai-explanation">
+                    <div class="ai-content">
+                        <h3>Intelligent Freshness Assessment</h3>
+                        <p>The system uses advanced AI to analyze food images and determine donation eligibility:</p>
+                        <div class="ai-features">
+                            <div class="ai-feature">
+                                <h4>Visual Analysis</h4>
+                                <p>Examines color, texture, and appearance for signs of spoilage</p>
+                            </div>
+                            <div class="ai-feature">
+                                <h4>Context Understanding</h4>
+                                <p>Considers food type, preparation method, and environmental factors</p>
+                            </div>
+                            <div class="ai-feature">
+                                <h4>Safety Classification</h4>
+                                <p>Provides clear "eligible" or "not eligible" recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-benefits">
+                        <h3>Why AI Matters</h3>
+                        <ul>
+                            <li>⚡ Reduces decision time from hours to seconds</li>
+                            <li>🎯 Minimizes human error in food safety assessment</li>
+                            <li>📊 Provides consistent, objective evaluations</li>
+                            <li>🔄 Scales to handle high-volume food donations</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future Work -->
+            <section class="content-section">
+                <h2>🚀 Future Enhancements</h2>
+                <div class="future-grid">
+                    <div class="future-card">
+                        <h3>📍 Geo-Location Matching</h3>
+                        <p>Smart matching between donors and nearby NGOs using GPS data</p>
+                    </div>
+                    <div class="future-card">
+                        <h3>📊 Real-Time Capacity Tracking</h3>
+                        <p>Live NGO capacity monitoring to optimize food distribution</p>
+                    </div>
+                    <div class="future-card">
+                        <h3>📱 Mobile Application</h3>
+                        <p>Native mobile apps for iOS and Android platforms</p>
+                    </div>
+                    <div class="future-card">
+                        <h3>🔔 Automated Notifications</h3>
+                        <p>Real-time alerts for NGOs about incoming donations</p>
+                    </div>
+                    <div class="future-card">
+                        <h3>📈 Analytics Dashboard</h3>
+                        <p>Comprehensive reporting on food waste reduction impact</p>
+                    </div>
+                    <div class="future-card">
+                        <h3>🤝 Multi-Organization Partnerships</h3>
+                        <p>Integration with government agencies and food banks</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="homepage-footer">
+                <p>© 2025 Food Waste Management DApp - College Project</p>
+                <p>Built with ❤️ using AI, Blockchain, and Modern Web Technologies</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Inventory Tab -->
+    <div id="inventoryTab" class="tab-content" role="tabpanel" aria-labelledby="inventoryTabBtn">
+        <div class="container inventory-container">
+            <header>
+                <h1>Inventory Management</h1>
+                <p>Add, edit, and delete products from the mart database</p>
+            </header>
+
+            <div class="inventory-actions">
+                <div class="search-box">
+                    <input type="text" id="inventorySearch" placeholder="Search by name or barcode..."
+                        oninput="displayInventory()">
+                </div>
+                <button class="action-button" onclick="openProductModal()">+ Add New Product</button>
+            </div>
+
+            <div class="inventory-table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Barcode</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Expiry Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryList">
+                        <!-- Inventory items will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Product Modal -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Add New Product</h2>
+                    <span class="close-modal" onclick="closeProductModal()">&times;</span>
+                </div>
+                <form id="productForm" onsubmit="handleProductSubmit(event)">
+                    <input type="hidden" id="editProductId">
+                    <div class="form-group">
+                        <label for="prodName">Product Name</label>
+                        <input type="text" id="prodName" required placeholder="e.g., Fresh Milk">
+                    </div>
+                    <div class="form-group">
+                        <label for="prodBarcode">Barcode</label>
+                        <input type="text" id="prodBarcode" required placeholder="e.g., 1234567890">
+                    </div>
+                    <div class="form-group">
+                        <label for="prodCategory">Category</label>
+                        <select id="prodCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="Dairy">Dairy</option>
+                            <option value="Bakery">Bakery</option>
+                            <option value="Vegetables">Vegetables</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Meat">Meat</option>
+                            <option value="Seafood">Seafood</option>
+                            <option value="Beverages">Beverages</option>
+                            <option value="Snacks">Snacks</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prodExpiry">Expiry Date</label>
+                        <input type="date" id="prodExpiry" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prodQuantity">Quantity</label>
+                        <input type="number" id="prodQuantity" required min="1" value="1">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="cancel-button" onclick="closeProductModal()">Cancel</button>
+                        <button type="submit" class="save-button">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Tab -->
+    <div id="systemTab" class="tab-content" role="tabpanel" aria-labelledby="systemTabBtn">
+        <div class="container">
+            <!-- Landing Page -->
+            <div id="landingPage" class="view active">
+                <header>
+                    <h1>Food Waste Management System</h1>
+                    <p>Choose your food source to start the donation process</p>
+                </header>
+                <main>
+                    <div class="option-cards">
+                        <div class="option-card" id="martOption">
+                            <div class="card-icon">🏪</div>
+                            <h2>Mart Food</h2>
+                            <p>Scan barcode and check expiry dates</p>
+                            <button class="option-button">Select</button>
+                        </div>
+                        <div class="option-card" id="partyOption">
+                            <div class="card-icon">🎉</div>
+                            <h2>Wedding/Party Food</h2>
+                            <p>AI-powered food freshness analysis</p>
+                            <button class="option-button">Select</button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Mart Food Flow -->
+            <div id="martPage" class="view">
+                <header>
+                    <button class="back-button" onclick="showView('landingPage')">← Back</button>
+                    <h1>Mart Food</h1>
+                    <p>Manage products and check expiry dates</p>
+                </header>
+                <main>
+                    <div class="filter-section">
+                        <button class="filter-btn active" data-filter="all">All Products</button>
+                        <button class="filter-btn" data-filter="expiring">Expiring &lt; 10 days</button>
+                    </div>
+
+                    <div class="barcode-section">
+                        <input type="text" id="barcodeInput" placeholder="Enter or scan barcode" class="barcode-input">
+                        <button id="addBarcodeBtn" class="action-button">Add Product</button>
+                    </div>
+
+                    <div class="products-list" id="productsList"></div>
+
+                    <div id="martResult" class="result-section" style="display: none;"></div>
+                </main>
+            </div>
+
+            <!-- Wedding/Party Food Flow -->
+            <div id="partyPage" class="view">
+                <header>
+                    <button class="back-button" onclick="showView('landingPage')">← Back</button>
+                    <h1>Wedding/Party Food</h1>
+                    <p>AI-powered food freshness analysis</p>
+                </header>
+                <main>
+                    <div class="upload-section">
+                        <label for="partyImageInput" class="upload-label">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span id="partyUploadText">Choose an image</span>
+                        </label>
+                        <input type="file" id="partyImageInput" accept="image/*" hidden>
+                    </div>
+
+                    <div class="preview-section" id="partyPreviewSection" style="display: none;">
+                        <h2>Image Preview</h2>
+                        <img id="partyImagePreview" src="" alt="Preview">
+                        <button id="analyzePartyButton" class="analyze-button">Analyze Food Freshness</button>
+                    </div>
+
+                    <div class="loading-section" id="partyLoadingSection" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing image...</p>
+                    </div>
+
+                    <div class="result-section" id="partyResultSection" style="display: none;">
+                        <h2>Analysis Result</h2>
+                        <div id="partyResultContent"></div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Donation Cart -->
+            <div id="cartPage" class="view">
+                <header>
+                    <button class="back-button" onclick="goBackFromCart()">← Back</button>
+                    <h1>Donation Cart</h1>
+                    <p>Review items before donation</p>
+                </header>
+                <main>
+                    <div id="cartItems" class="cart-items"></div>
+                    <div id="emptyCart" class="empty-cart" style="display: none;">
+                        <p>Your cart is empty</p>
+                    </div>
+                    <div class="cart-actions" id="cartActions" style="display: none;">
+                        <button id="proceedToNGO" class="proceed-button">Proceed to NGO Selection</button>
+                    </div>
+                </main>
+            </div>
+
+            <!-- NGO Selection -->
+            <div id="ngoPage" class="view">
+                <header>
+                    <button class="back-button" onclick="showView('cartPage')">← Back</button>
+                    <h1>Select NGO</h1>
+                    <p>Choose an organization to donate to</p>
+                </header>
+                <main>
+                    <div id="ngoList" class="ngo-list"></div>
+                </main>
+            </div>
+
+            <!-- Smart Contract Transaction -->
+            <div id="transactionPage" class="view">
+                <header>
+                    <button class="back-button" onclick="showView('ngoPage')" id="transactionBackBtn"
+                        style="display: none;">← Back</button>
+                    <h1>Processing Donation</h1>
+                    <p>Secure blockchain transaction in progress</p>
+                </header>
+                <main>
+                    <div class="wallet-connection-section" id="walletSection">
+                        <div class="wallet-status" id="walletStatus">
+                            <p>Please connect your MetaMask wallet to proceed</p>
+                            <button id="connectWalletBtn" class="wallet-button">Connect MetaMask</button>
+                        </div>
+                        <div class="wallet-info" id="walletInfo" style="display: none;">
+                            <p><strong>Connected:</strong> <span id="walletAddress"></span></p>
+                            <p><strong>Network:</strong> <span id="walletNetwork"></span></p>
+                            <button id="disconnectWalletBtn" class="wallet-button disconnect">Disconnect</button>
+                        </div>
+                    </div>
+                    <div class="transaction-details" id="transactionDetails" style="display: none;"></div>
+                    <div class="transaction-progress" id="transactionProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <p id="progressText">Initializing transaction...</p>
+                    </div>
+                    <div id="transactionHash" class="transaction-hash" style="display: none;"></div>
+                    <div id="transactionError" class="transaction-error" style="display: none;"></div>
+                    <div id="transactionSuccess" class="transaction-success" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h2>Donation Successful!</h2>
+                        <p>Your food donation has been processed and recorded on the blockchain.</p>
+                        <button class="home-button" onclick="resetAndGoHome()">Start New Donation</button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
